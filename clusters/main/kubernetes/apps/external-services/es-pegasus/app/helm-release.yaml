@@ -34,15 +34,12 @@ spec:
       main:
         type: ExternalIP
         loadBalancerIP: "10.42.1.3"
-        useSlice: false
         ports:
           main:
             protocol: https
             port: 10443
     ingress:
       main:
-        annotations:
-          traefik.frontend.passHostHeader: "false"
         enabled: true
         hosts:
           - host: "pegasus.test.arneklein.net"

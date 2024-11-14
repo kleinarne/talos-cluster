@@ -34,15 +34,12 @@ spec:
       main:
         type: ExternalIP
         loadBalancerIP: "10.42.1.11"
-        useSlice: false
         ports:
           main:
             protocol: http
             port: 8123
     ingress:
       main:
-        annotations:
-          traefik.frontend.passHostHeader: "false"
         enabled: true
         hosts:
           - host: "homeassistant.test.arneklein.net"
