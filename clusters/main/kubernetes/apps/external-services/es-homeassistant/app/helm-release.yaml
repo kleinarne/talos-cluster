@@ -33,7 +33,7 @@ spec:
     service:
       main:
         type: ExternalIP
-        loadBalancerIP: "10.42.1.11"
+        # loadBalancerIP: "10.42.1.11"
         ports:
           main:
             protocol: http
@@ -46,6 +46,7 @@ spec:
             paths:
               - path: "/"
                 pathType: "Prefix"
+        externalIP: "10.42.1.11"
         integrations:
           certManager:
             certificateIssuer: "domain-0-le-prod"

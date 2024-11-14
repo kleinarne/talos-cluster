@@ -33,11 +33,12 @@ spec:
     service:
       main:
         type: ExternalIP
-        loadBalancerIP: "10.42.1.3"
+        # loadBalancerIP: "10.42.1.3"
         ports:
           main:
             protocol: https
             port: 10443
+        externalIP: "10.42.1.3"
     ingress:
       main:
         enabled: true
@@ -50,4 +51,3 @@ spec:
           certManager:
             certificateIssuer: "domain-0-le-prod"
             enabled: true
-          traefik:
