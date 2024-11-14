@@ -38,6 +38,7 @@ spec:
           main:
             protocol: http
             port: 8123
+        externalIP: "10.42.1.11"
     ingress:
       main:
         enabled: true
@@ -46,7 +47,6 @@ spec:
             paths:
               - path: "/"
                 pathType: "Prefix"
-        externalIP: "10.42.1.11"
         integrations:
           certManager:
             certificateIssuer: "domain-0-le-prod"
