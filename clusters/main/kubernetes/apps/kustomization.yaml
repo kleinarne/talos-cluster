@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - external-services
+  - media
+  - immich/ks.yaml
