@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: immich
-      version: 17.22.10
+      version: 17.23.4
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -42,6 +42,3 @@ spec:
           certManager:
             certificateIssuer: "domain-0-le-prod"
             enabled: true
-          homepage:
-            widget:
-              version: 2
