@@ -5,3 +5,4 @@ resources:
   - external-services
   - media
   - immich/ks.yaml
+  - wg-easy/ks.yaml
