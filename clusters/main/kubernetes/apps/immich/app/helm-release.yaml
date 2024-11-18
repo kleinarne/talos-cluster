@@ -8,7 +8,7 @@ spec:
   interval: 15m
   chart:
     spec:
-      chart: external-service
+      chart: immich
       version: 17.22.10
       sourceRef:
         kind: HelmRepository
