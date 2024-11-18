@@ -4,6 +4,13 @@ kind: HelmRelease
 metadata:
   name: immich
   namespace: immich
+workload:
+  main:
+    podSpec:
+      containers:
+        main:
+          env:
+            IMMICH_IGNORE_MOUNT_CHECK_ERRORS: true
 spec:
   interval: 15m
   chart:
