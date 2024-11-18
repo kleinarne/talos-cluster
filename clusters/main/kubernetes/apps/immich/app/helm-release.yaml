@@ -44,14 +44,14 @@ spec:
             enabled: true
     persistence:
       library:
-        type: pvc
+        type: "pvc"
       uploads:
-        type: pvc
+        type: "pvc"
       backups:
-        type: pvc
+        type: "pvc"
       thumbs:
-        type: pvc
+        type: "pvc"
       profile:
-        type: pvc
+        type: "pvc"
       video:
-        type: pvc
+        type: "pvc"
