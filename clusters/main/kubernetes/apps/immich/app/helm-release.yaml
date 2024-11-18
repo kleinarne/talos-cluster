@@ -42,16 +42,3 @@ spec:
           certManager:
             certificateIssuer: "domain-0-le-prod"
             enabled: true
-    persistence:
-      library:
-        type: "pvc"
-      uploads:
-        type: "pvc"
-      backups:
-        type: "pvc"
-      thumbs:
-        type: "pvc"
-      profile:
-        type: "pvc"
-      video:
-        type: "pvc"
