@@ -26,6 +26,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                MINIO_ROOT_USER: "a-kleinar"
+                MINIO_ROOT_PASSWORD: "Applaud-Blinks-Brutishly-Fool-Bunt4-Contort"
     ingress:
       main:
         enabled: true
