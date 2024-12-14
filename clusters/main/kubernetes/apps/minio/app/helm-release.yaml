@@ -26,4 +26,15 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: "minio.test.arneklein.net"
+            paths:
+              - path: "/"
+                pathType: "Prefix"
+        integrations:
+          certManager:
+            certificateIssuer: "domain-0-le-prod"
+            enabled: true
