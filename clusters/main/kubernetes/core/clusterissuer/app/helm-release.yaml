@@ -64,4 +64,7 @@ spec:
           certificateIssuer: domain-0-le-prod
           hosts:
             - ${DOMAIN_0}
-            - '*.${DOMAIN_0}'
+            - 'lan.${DOMAIN_0}'
+            - '*.lan.${DOMAIN_0}'
+            - 'test.${DOMAIN_0}'
+            - '*.test.${DOMAIN_0}'
