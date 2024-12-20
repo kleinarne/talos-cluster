@@ -23,9 +23,19 @@ spec:
     createNamespace: true
     remediation:
       retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
   uninstall:
     keepHistory: false
   values:
+    persistence:
+      config:
+        enabled: true
+        type: nfs
+        path: "/mnt/strawberry/encrypted/backups/minio-s3-backups"
+        server: "10.42.1.3"
     workload:
       main:
         podSpec:
@@ -34,21 +44,17 @@ spec:
               env:
                 MINIO_ROOT_USER: "Giant-Applause-Nursing-Pedometer3-Version"
                 MINIO_ROOT_PASSWORD: "Applaud-Blinks-Brutishly-Fool-Bunt4-Contort"
-    persistence:
-      config:
-        enabled: true
-        type: "nfs"
-        path: "/mnt/strawberry/encrypted/backups/minio-s3-backups"
-        server: "10.42.1.3"
+                MINIO_BROWSER_REDIRECT_URL: "https://minio.test.arneklein.net"
+                MINIO_SERVER_URL: "https://api.test.arneklein.net"
     ingress:
       main:
         enabled: true
         hosts:
-          - host: "minio.test.arneklein.net"
+          - host: minio.test.arneklein.net
             paths:
-              - path: "/"
-                pathType: "Prefix"
+              - path: /
+                pathType: Prefix
         integrations:
           certManager:
-            certificateIssuer: "domain-0-le-prod"
+            certificateIssuer: domain-0-le-prod
             enabled: true
