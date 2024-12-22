@@ -29,7 +29,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-
     clusterIssuer:
       selfSigned:
         enabled: true
@@ -71,4 +70,4 @@ spec:
             - '*.minio.lan.${DOMAIN_0}'
             - '*.minio.test.${DOMAIN_0}'
             - '*.api.test.${DOMAIN_0}'
-            - '*.ap.lan.${DOMAIN_0}'
+            - '*.api.lan.${DOMAIN_0}'
