@@ -33,8 +33,8 @@ spec:
     credentials:
       minio_credentials:
         type: s3
-        url: "https://${S3_BUCKET}-immich.${S3_URL_MINIO}"
-        bucket: "${S3_BUCKET}-immich"
+        url: "https://test.immich.test.arneklein.net"
+        bucket: "test"
         accessKey: "${S3_ACCESS_KEY}"
         secretKey: "${S3_SECRET_KEY}"
         encrKey: "${S3_ENCRYPTION_KEY}"
@@ -54,6 +54,7 @@ spec:
           enabled: true
           credentials: minio_credentials
         recovery:
+          mode: standalone
           method: object_store
           credentials: minio_credentials
     ingress:
