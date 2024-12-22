@@ -33,7 +33,7 @@ spec:
     credentials:
       minio_credentials:
         type: s3
-        url: "https://test.immich.test.arneklein.net"
+        url: "https://test.minio.test.arneklein.net"
         bucket: "test"
         accessKey: "${S3_ACCESS_KEY}"
         secretKey: "${S3_SECRET_KEY}"
