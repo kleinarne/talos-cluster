@@ -33,11 +33,11 @@ spec:
     credentials:
       minio_credentials:
         type: s3
-        url: "https://bucket.minio.test.arneklein.net"
-        bucket: "bucket"
-        accessKey: "${S3_ACCESS_KEY}"
-        secretKey: "${S3_SECRET_KEY}"
-        encrKey: "${S3_ENCRYPTION_KEY}"
+        url: https://bucket.minio.test.arneklein.net
+        bucket: bucket
+        accessKey: ${S3_ACCESS_KEY}
+        secretKey: ${S3_SECRET_KEY}
+        encrKey: ${S3_ENCRYPTION_KEY}
     persistence:
       config:
         volsync:
