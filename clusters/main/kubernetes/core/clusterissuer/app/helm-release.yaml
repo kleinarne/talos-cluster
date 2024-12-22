@@ -70,3 +70,5 @@ spec:
             - '*.test.${DOMAIN_0}'
             - '*.minio.lan.${DOMAIN_0}'
             - '*.minio.test.${DOMAIN_0}'
+            - '*.api.test.${DOMAIN_0}'
+            - '*.ap.lan.${DOMAIN_0}'
