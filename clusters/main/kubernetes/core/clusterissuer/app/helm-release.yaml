@@ -68,3 +68,5 @@ spec:
             - '*.lan.${DOMAIN_0}'
             - 'test.${DOMAIN_0}'
             - '*.test.${DOMAIN_0}'
+            - '*.minio.lan.${DOMAIN_0}'
+            - '*.minio.test.${DOMAIN_0}'
