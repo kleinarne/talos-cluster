@@ -47,11 +47,11 @@ spec:
             dest:
               enabled: false
             src:
-              enabled: true
+              enabled: false
     cnpg:
       main:
         backups:
-          enabled: true
+          enabled: false
           credentials: minio_credentials
         recovery:
           mode: standalone
