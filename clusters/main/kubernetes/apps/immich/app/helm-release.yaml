@@ -33,7 +33,7 @@ spec:
     credentials:
       minio:
         type: s3
-        url: "https://api.test.arneklein.net"
+        url: "http://minio-api.minio.svc.cluster.local"
         bucket: "test"
         accessKey: "${S3_ACCESS_KEY}"
         secretKey: "${S3_SECRET_KEY}"
