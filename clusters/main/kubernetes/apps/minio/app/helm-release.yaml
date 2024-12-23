@@ -44,11 +44,13 @@ spec:
               env:
                 MINIO_ROOT_USER: ${MINIO_USER}
                 MINIO_ROOT_PASSWORD: ${MINIO_PASSWORD}
+                MINIO_BROWSER_REDIRECT_URL: "https://minio.test.${DOMAIN_0}"
+                MINIO_SERVER_URL: "https://api.test.${DOMAIN_0}"
     ingress:
       main:
         enabled: true
         hosts:
-          - host: minio.test.arneklein.net
+          - host: minio.test.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
@@ -56,3 +58,11 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
+      api:
+        enabled: true
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod
+        hosts:
+          - host: api.test.${DOMAIN_0}
+            paths:
