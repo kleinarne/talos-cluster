@@ -39,10 +39,10 @@ spec:
         secretKey: "${S3_SECRET_KEY}"
         encrKey: "${S3_ENCRYPTION_KEY}"
     persistence:
-      config:
+      backups:
         enabled: true
         volsync:
-          - name: config
+          - name: backups
             type: restic
             credentials: minio
             dest:
