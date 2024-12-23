@@ -34,7 +34,7 @@ spec:
       minio:
         type: s3
         url: "https://api.test.${DOMAIN_0}"
-        bucket: "bucket"
+        bucket: "test"
         accessKey: "${S3_ACCESS_KEY}"
         secretKey: "${S3_SECRET_KEY}"
         ecrKey: "${S3_ENCRYPTION_KEY}"
