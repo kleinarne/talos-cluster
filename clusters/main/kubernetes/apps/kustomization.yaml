@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - minio/ks.yaml
-  - immich
+  - immich/ks.yaml
