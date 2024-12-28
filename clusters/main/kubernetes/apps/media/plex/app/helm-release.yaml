@@ -47,3 +47,10 @@ spec:
         enabled: true
         existingClaim: media-nfs-pvc
         mountPath: /mnt/media
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                PLEX_CLAIM: ${PLEX_CLAIM}
