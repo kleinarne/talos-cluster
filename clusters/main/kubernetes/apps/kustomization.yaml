@@ -4,5 +4,5 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - minio/ks.yaml
   - immich/ks.yaml
-  - paperless-ngx
   - media
+  - paperless-ngx/ks.yaml
