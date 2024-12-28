@@ -12,7 +12,7 @@ spec:
   persistentVolumeReclaimPolicy: Retain
   nfs:
     server: ${CONFIG_TRUENAS_IP}
-    path: ${MEDIA_NFS_VOLUME}
+    path: ${MEDIA_NFS_PATH}
   mountOptions:
     - nfsvers=4
     - tcp
