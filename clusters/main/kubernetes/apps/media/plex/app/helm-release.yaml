@@ -30,13 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: 10.42.1.215
-        ports:
-          main:
-            port: 32400
     ingress:
       main:
         enabled: true
@@ -60,6 +53,4 @@ spec:
           containers:
             main:
               env:
-                serverIP: "10.42.1.215"
-                ALLOWED_NETWORKS: "172.16.0.0/12,10.0.0.0/8,192.168.0.0/16"
                 PLEX_CLAIM: ${PLEX_CLAIM}
