@@ -40,7 +40,7 @@ spec:
         encrKey: "${S3_ENCRYPTION_KEY}"
     persistence:
       backups:
-        enabled: true
+        enabled: false
         volsync:
           - name: backups
             type: restic
@@ -52,7 +52,7 @@ spec:
     cnpg:
       main:
         backups:
-          enabled: true
+          enabled: false
           credentials: minio
         recovery:
           method: object_store
