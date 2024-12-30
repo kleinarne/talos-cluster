@@ -30,15 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-   plex:
-     serverIP: "10.42.1.210"
-   service:
-      main:
-        type: LoadBalancer
-        loadBalancerIP: 10.42.1.215
-        ports:
-          main:
-            port: 32400
     ingress:
       main:
         enabled: true
