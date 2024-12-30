@@ -31,7 +31,7 @@ spec:
     keepHistory: false
   values:
    plex:
-     serverIP: "10.42.1.215"
+     serverIP: "10.42.1.210"
    service:
       main:
         type: LoadBalancer
