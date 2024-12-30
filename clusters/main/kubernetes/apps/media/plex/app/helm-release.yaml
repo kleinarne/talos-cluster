@@ -30,6 +30,13 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    plex:
+      serverIP: ${PLEX_IP}
+      additionalAdvertiseURL: "https://plex.test.arneklein.net,http://plex.test.arneklein.net:32400,https://${PLEX_IP}:32400,http://${PLEX_IP}:32400"
+    service:
+      main:
+        type: LoadBalancer
+        loadBalancerIP: ${PLEX_IP}
     ingress:
       main:
         enabled: true
