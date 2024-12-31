@@ -30,6 +30,14 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
     plex:
       serverIP: ${PLEX_IP}
       additionalAdvertiseURL: "https://plex.test.arneklein.net,http://plex.test.arneklein.net:32400,https://${PLEX_IP}:32400,http://${PLEX_IP}:32400"
@@ -50,6 +58,15 @@ spec:
             certificateIssuer: domain-0-le-prod
             enabled: true
     persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: false
       media:
         enabled: true
         existingClaim: media-nfs-pvc
