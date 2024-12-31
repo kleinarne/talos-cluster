@@ -1,0 +1,105 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: vaultwarden
+  namespace: vaultwarden
+spec:
+  interval: 15m
+  chart:
+    spec:
+      chart: vaultwarden
+      version: 27.1.2
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+      interval: 15m
+  timeout: 20m
+  maxHistory: 3
+  driftDetection:
+    mode: warn
+  install:
+    createNamespace: true
+    remediation:
+      retries: 3
+  upgrade:
+    cleanupOnFail: true
+    remediation:
+      retries: 3
+  uninstall:
+    keepHistory: false
+  values:
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+    vaultwarden:
+      allowSignups: false
+      smtp:
+        enabled: true
+        host: ${SMTP_HOST}
+        from: ${SMTP_SENDER_EMAIL}
+        fromName: ${SMTP_SENDER_NAME}
+        security: starttls
+        port: 25
+        authMechanism: Login
+        heloName: ""
+        timeout: 15
+        invalidHostname: true
+        invalidCertificate: true
+        user: ${SMTP_USERNAME}
+        password: ${SMTP_PASSWORD}
+      yubico:
+        enabled: false
+      push:
+        enabled: true
+        installationId: ${VAULTWARDEN_PUSHID}
+        installationKey: ${VAULTWARDEN_PUSHKEY}
+    persistence:
+      data:
+        volsync:
+          - name: config
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: true
+    cnpg:
+      main:
+        mode: recovery
+        password: ${VAULTWARDEN_CNPG_PASSWORD}
+        backups:
+          enabled: false
+          revision: "1"
+          credentials: backblaze
+        recovery:
+          credentials: backblaze
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: vaultwarden.test.arneklein.net
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            certificateIssuer: domain-0-le-prod
+            enabled: true
+      public:
+        enabled: true
+        hosts:
+          - host: vw.arneklein.net
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            certificateIssuer: domain-0-le-prod
+            enabled: true
