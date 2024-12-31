@@ -40,7 +40,7 @@ spec:
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
     plex:
       serverIP: ${PLEX_IP}
-      additionalAdvertiseURL: "https://plex.test.arneklein.net,http://plex.test.arneklein.net:32400,https://${PLEX_IP}:32400,http://${PLEX_IP}:32400"
+      additionalAdvertiseURL: "https://plex.test.arneklein.net"
     service:
       main:
         type: LoadBalancer
@@ -64,7 +64,7 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
       media:
