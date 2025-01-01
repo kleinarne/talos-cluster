@@ -60,7 +60,7 @@ spec:
       consume:
         type: nfs
         server: ${TRUENAS_IP}
-        path: ${PAPERLESSWATCHDIR_NFS_PATH}
+        path: ${PAPERLESS_WATCHDIR_NFS_PATH}
     cnpg:
       main:
         mode: recovery
@@ -93,7 +93,3 @@ spec:
                 PAPERLESS_URL: ${PAPERLESS_HOST}
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng deu"
-                PAPERLESS_DBPASS:
-                  secretKeyRef:
-                    name: cnpg-main-user
-                    key: password
