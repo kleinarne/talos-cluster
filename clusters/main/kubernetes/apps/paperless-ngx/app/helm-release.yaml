@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: paperless-ngx
-      version: 9.10.8
+      version: 8.2.12
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -30,11 +30,53 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+    persistence:
+      data:
+        volsync:
+          - name: data
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: false
+      media:
+        volsync:
+          - name: documents
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: false
+      consume:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${PAPERLESSWATCHDIR_NFS_PATH}
+    cnpg:
+      main:
+        mode: recovery
+        password: ${PAPERLESS_CNPG_PASSWORD}
+        backups:
+          enabled: false
+          revision: "1"
+          credentials: backblaze
+        recovery:
+          enabled: true
+          credentials: backblaze
     ingress:
       main:
         enabled: true
         hosts:
-          - host: paperless.test.arneklein.net
+          - host: ${PAPERLESS_HOST}
             paths:
               - path: /
                 pathType: Prefix
@@ -42,3 +84,16 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                PAPERLESS_URL: ${PAPERLESS_HOST}
+                PAPERLESS_OCR_LANGUAGE: "eng"
+                PAPERLESS_OCR_LANGUAGES: "eng deu"
+                PAPERLESS_DBPASS:
+                  secretKeyRef:
+                    name: cnpg-main-user
+                    key: password
