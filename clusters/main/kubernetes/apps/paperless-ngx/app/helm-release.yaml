@@ -90,6 +90,6 @@ spec:
           containers:
             main:
               env:
-                PAPERLESS_URL: https://"${PAPERLESS_HOST}"
+                PAPERLESS_URL: https://${PAPERLESS_HOST}
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng deu"
