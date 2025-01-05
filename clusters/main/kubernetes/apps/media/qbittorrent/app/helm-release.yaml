@@ -45,13 +45,18 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
       media:
         enabled: true
         existingClaim: media-nfs-pvc
         mountPath: /mnt/media
+      webui:
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${VUETORRENT_WEBUI_NFS_PATH}
+        mountPath: /webui
     ingress:
       main:
         enabled: true
