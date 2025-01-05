@@ -30,6 +30,28 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: false
+            src:
+              enabled: false
+      media:
+        enabled: true
+        existingClaim: media-nfs-pvc
+        mountPath: /mnt/media
     ingress:
       main:
         enabled: true
