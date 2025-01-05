@@ -54,7 +54,7 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
       consume:
@@ -63,14 +63,14 @@ spec:
         path: ${PAPERLESS_WATCHDIR_NFS_PATH}
     cnpg:
       main:
-        mode: recovery
+        mode: standalone
         password: ${PAPERLESS_CNPG_PASSWORD}
         backups:
           enabled: false
           revision: "1"
           credentials: backblaze
         recovery:
-          enabled: true
+          enabled: false
           credentials: backblaze
     ingress:
       main:
