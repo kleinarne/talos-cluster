@@ -4,7 +4,6 @@ resources:
   - pvc.yaml
   - plex/ks.yaml
   - prowlarr/ks.yaml
-  - qbittorrent/ks.yaml
   - namespace.yaml
   - sonarr/ks.yaml
   - radarr/ks.yaml
