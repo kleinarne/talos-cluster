@@ -8,3 +8,4 @@ resources:
   - paperless-ngx/ks.yaml
   - external-services
   - vaultwarden/ks.yaml
+  - unifi/ks.yaml
