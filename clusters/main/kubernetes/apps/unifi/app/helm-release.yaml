@@ -65,7 +65,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: ui.unifi.test.arneklein.net
+          - host: unifi.test.arneklein.net
             paths:
               - path: /
                 pathType: Prefix
