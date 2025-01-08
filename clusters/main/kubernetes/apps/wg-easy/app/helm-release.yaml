@@ -38,20 +38,29 @@ spec:
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
-   service:
-     vpn:
-       type: LoadBalancer
-       loadBalancerIP: ${WGEASY_IP}
-   persistence:
-     config:
-       volsync:
-         - name: config
-           type: restic
-           credentials: backblaze
-           dest:
-             enabled: true
-           src:
-             enabled: false
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: backblaze
+            dest:
+              enabled: true
+            src:
+              enabled: false
+    service:
+      vpn:
+        type: LoadBalancer
+        loadBalancerIP: ${WGEASY_IP}
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                WG_HOST: ${WGEASY_HOST}
+                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
+                WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
     ingress:
       main:
         enabled: true
@@ -64,12 +73,3 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                WG_HOST: ${WGEASY_HOST}
-                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
-                WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
