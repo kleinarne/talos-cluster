@@ -61,7 +61,7 @@ spec:
               enabled: true
             src:
               enabled: false
-      consume:
+      data:
         type: nfs
         server: ${TRUENAS_IP}
         path: ${NEXTCLOUD_NFS_PATH}
