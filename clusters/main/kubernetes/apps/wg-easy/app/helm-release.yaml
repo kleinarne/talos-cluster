@@ -43,15 +43,15 @@ spec:
        type: LoadBalancer
        loadBalancerIP: ${WGEASY_IP}
    persistence:
-      config:
-        volsync:
-          - name: config
-            type: restic
-            credentials: backblaze
-            dest:
-              enabled: true
-            src:
-              enabled: false
+     config:
+       volsync:
+         - name: config
+           type: restic
+           credentials: backblaze
+           dest:
+             enabled: true
+           src:
+             enabled: false
     ingress:
       main:
         enabled: true
