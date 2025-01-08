@@ -59,7 +59,8 @@ spec:
             main:
               env:
                 WG_HOST: ${WGEASY_HOST}
-                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
+#                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
+                PASSWORD: ${WGEASY_PASSWORD}
                 WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
     ingress:
       main:
