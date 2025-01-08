@@ -9,4 +9,3 @@ resources:
   - external-services
   - vaultwarden/ks.yaml
   - unifi/ks.yaml
-  - nextcloud/ks.yaml
