@@ -10,3 +10,4 @@ resources:
   - vaultwarden/ks.yaml
   - unifi/ks.yaml
   - nextcloud/ks.yaml
+  - wg-easy/ks.yaml
