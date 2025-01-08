@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: wg-easy
-      version: 14.0.8
+      version: 16.3.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -45,7 +45,7 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
     service:
@@ -59,8 +59,7 @@ spec:
             main:
               env:
                 WG_HOST: ${WGEASY_HOST}
-#                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
-                PASSWORD: ${WGEASY_PASSWORD}
+                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
                 WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
     ingress:
       main:
