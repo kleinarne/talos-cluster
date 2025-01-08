@@ -38,7 +38,11 @@ spec:
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
-    persistence:
+   service:
+     vpn:
+       type: LoadBalancer
+       loadBalancerIP: ${WGEASY_IP}
+   persistence:
       config:
         volsync:
           - name: config
