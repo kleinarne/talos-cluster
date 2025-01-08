@@ -58,7 +58,7 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
       data:
@@ -74,7 +74,7 @@ spec:
           revision: "1"
           credentials: backblaze
         recovery:
-          enabled: true
+          enabled: false
           credentials: backblaze
     ingress:
       main:
