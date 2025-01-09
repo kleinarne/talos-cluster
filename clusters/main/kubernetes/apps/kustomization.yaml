@@ -10,5 +10,4 @@ resources:
   - vaultwarden/ks.yaml
   - unifi/ks.yaml
   - nextcloud/ks.yaml
-  - ddns-updater/ks.yaml
   - cloudflareddns/ks.yaml
