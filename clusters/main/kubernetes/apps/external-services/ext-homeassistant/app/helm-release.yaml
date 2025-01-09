@@ -34,7 +34,7 @@ spec:
       main:
         type: ExternalIP
         externalIP: ${HOMEASSISTANT_IP}
-        protocol: HTTPS
+        protocol: HTTP
         ports:
           main:
             enabled: true
