@@ -30,6 +30,22 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    service:
+      vpn:
+        type: LoadBalancer
+        loadBalancerIP: ${WGEASY_IP}
+        externalTrafficPolicy: Local
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: wg.test.arneklein.net
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            enabled: true
     credentials:
       backblaze:
         type: s3
@@ -48,19 +64,13 @@ spec:
               enabled: true
             src:
               enabled: false
-    service:
-      vpn:
-        type: LoadBalancer
-        loadBalancerIP: ${WGEASY_IP}
-    ingress:
+    workload:
       main:
-        enabled: true
-        hosts:
-          - host: wg.test.arneklein.net
-            paths:
-              - path: /
-                pathType: Prefix
-        integrations:
-          certManager:
-            certificateIssuer: domain-0-le-prod
-            enabled: true
+        podSpec:
+          containers:
+            main:
+              env:
+                WG_HOST: wg.${DOMAIN_0}
+                WG_MTU: 1420
+                WG_DEFAULT_DNS: ${BLOCKY_IP}
+                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
