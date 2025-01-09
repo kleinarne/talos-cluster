@@ -11,3 +11,4 @@ resources:
   - unifi/ks.yaml
   - nextcloud/ks.yaml
   - ddns-updater/ks.yaml
+  - cloudflareddns/ks.yaml
