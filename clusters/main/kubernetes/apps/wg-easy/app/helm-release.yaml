@@ -62,7 +62,7 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
     workload:
