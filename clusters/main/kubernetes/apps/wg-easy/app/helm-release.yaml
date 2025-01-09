@@ -46,6 +46,7 @@ spec:
         integrations:
           certManager:
             enabled: true
+            certificateIssuer: domain-0-le-prod
     credentials:
       backblaze:
         type: s3
