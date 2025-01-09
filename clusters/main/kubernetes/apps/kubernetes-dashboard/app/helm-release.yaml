@@ -37,3 +37,14 @@ spec:
         ports:
           main:
             port: 80
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: kubernetes-dashboard.lan.arneklein.net
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certificateIssuer: domain-0-le-prod
+          enabled: true
