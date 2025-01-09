@@ -38,12 +38,19 @@ spec:
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-unifi
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}
     persistence:
       config:
         volsync:
           - name: config
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
               enabled: false
             src:
