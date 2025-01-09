@@ -34,11 +34,11 @@ spec:
       main:
         type: ExternalIP
         externalIP: ${HOMEASSISTANT_IP}
-        protocol: HTTP
         ports:
           main:
             enabled: true
             port: 8123
+            protocol: http
     ingress:
       main:
         enabled: true

@@ -34,11 +34,11 @@ spec:
       main:
         type: ExternalIP
         externalIP: ${TRUENAS_IP}
-        protocol: HTTPS
         ports:
           main:
             enabled: true
             port: 10443
+            protocol: https
     ingress:
       main:
         enabled: true
