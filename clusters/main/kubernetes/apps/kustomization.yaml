@@ -10,3 +10,4 @@ resources:
   - unifi/ks.yaml
   - nextcloud/ks.yaml
   - cloudflareddns/ks.yaml
+  - minio/ks.yaml
