@@ -50,7 +50,7 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: minio
+            credentials: backblaze
             dest:
               enabled: false
             src:

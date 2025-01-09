@@ -74,7 +74,7 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: minio
+            credentials: backblaze
             dest:
               enabled: false
             src:
@@ -85,10 +85,10 @@ spec:
         password: ${VAULTWARDEN_CNPG_PASSWORD}
         backups:
           enabled: true
-          credentials: minio
+          credentials: backblaze
         recovery:
           enabled: false
-          credentials: minio
+          credentials: backblaze
     ingress:
       main:
         enabled: true
