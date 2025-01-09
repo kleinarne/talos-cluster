@@ -52,15 +52,6 @@ spec:
       vpn:
         type: LoadBalancer
         loadBalancerIP: ${WGEASY_IP}
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                WG_HOST: ${WGEASY_HOST}
-                PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
-                WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
     ingress:
       main:
         enabled: true
