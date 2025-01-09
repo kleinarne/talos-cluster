@@ -49,7 +49,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: plex.test.arneklein.net
+          - host: plex.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix

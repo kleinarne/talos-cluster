@@ -65,7 +65,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: ui.unifi.test.arneklein.net
+          - host: ui.unifi.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix
@@ -83,4 +83,4 @@ spec:
               enabled: true
               certificateIssuer: domain-0-le-prod
           hosts:
-            - host: cs.unifi.test.arneklein.net
+            - host: cs.unifi.${DOMAIN_0_LOCAL}

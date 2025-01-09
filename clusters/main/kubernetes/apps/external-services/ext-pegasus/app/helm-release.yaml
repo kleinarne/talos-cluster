@@ -43,7 +43,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: pegasus.test.arneklein.net
+          - host: pegasus.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix

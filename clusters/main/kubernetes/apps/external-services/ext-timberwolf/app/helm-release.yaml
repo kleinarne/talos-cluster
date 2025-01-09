@@ -43,7 +43,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: timberwolf.test.arneklein.net
+          - host: timberwolf.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix

@@ -56,7 +56,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: radarr.test.arneklein.net
+          - host: radarr.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix

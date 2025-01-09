@@ -50,7 +50,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: minio.test.arneklein.net
+          - host: minio.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix
@@ -64,5 +64,5 @@ spec:
             enabled: true
             certificateIssuer: domain-0-le-prod
         hosts:
-          - host: api.test.arneklein.net
+          - host: minio.${DOMAIN_0_LOCAL}
             paths:

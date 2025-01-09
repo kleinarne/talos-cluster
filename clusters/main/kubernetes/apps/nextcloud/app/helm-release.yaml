@@ -80,7 +80,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: nextcloud.test.arneklein.net
+          - host: nextcloud.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix
@@ -98,4 +98,4 @@ spec:
               enabled: true
               certificateIssuer: domain-0-le-prod
           hosts:
-            - host: cs.nextcloud.test.arneklein.net
+            - host: cs.nextcloud.${DOMAIN_0_LOCAL}
