@@ -34,7 +34,7 @@ spec:
       backblaze:
         type: s3
         url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}
+        bucket: ${S3_BACKBLAZE_BUCKET}-paperless-ngx
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
@@ -45,9 +45,9 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
-            src:
               enabled: false
+            src:
+              enabled: true
       media:
         volsync:
           - name: documents
@@ -56,7 +56,7 @@ spec:
             dest:
               enabled: false
             src:
-              enabled: false
+              enabled: true
       consume:
         type: nfs
         server: ${TRUENAS_IP}
@@ -66,8 +66,7 @@ spec:
         mode: standalone
         password: ${PAPERLESS_CNPG_PASSWORD}
         backups:
-          enabled: false
-          revision: "1"
+          enabled: true
           credentials: backblaze
         recovery:
           enabled: false
