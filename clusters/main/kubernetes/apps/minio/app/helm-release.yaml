@@ -52,6 +52,8 @@ spec:
         hosts:
           - host: api.${DOMAIN_0_LOCAL}
             paths:
+              - path: /
+                pathType: Prefix
         integrations:
           certManager:
             enabled: true
