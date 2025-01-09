@@ -38,6 +38,13 @@ spec:
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-vaultwarden
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}
     vaultwarden:
       allowSignups: false
       smtp:
@@ -65,7 +72,7 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
               enabled: false
             src:
@@ -76,10 +83,10 @@ spec:
         password: ${VAULTWARDEN_CNPG_PASSWORD}
         backups:
           enabled: true
-          credentials: backblaze
+          credentials: minio
         recovery:
           enabled: false
-          credentials: backblaze
+          credentials: minio
     ingress:
       main:
         enabled: true
