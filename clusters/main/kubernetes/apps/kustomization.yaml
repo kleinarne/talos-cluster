@@ -10,4 +10,3 @@ resources:
   - nextcloud/ks.yaml
   - cloudflareddns/ks.yaml
   - minio/ks.yaml
-  - media
