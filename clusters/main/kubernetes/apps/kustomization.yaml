@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - kubernetes-dashboard/ks.yaml
   - immich/ks.yaml
-  - media
   - paperless-ngx/ks.yaml
   - external-services
   - vaultwarden/ks.yaml
