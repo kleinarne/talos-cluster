@@ -35,14 +35,14 @@ spec:
       additionalAdvertiseURL: https://plex.${DOMAIN_0_LOCAL}
     persistence:
       config:
-        volsync:
-          - name: config
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+#        volsync:
+#          - name: config
+#            type: restic
+#            credentials: minio
+#            dest:
+#              enabled: false
+#            src:
+#              enabled: true
       media:
         enabled: true
         existingClaim: media-nfs-pvc
