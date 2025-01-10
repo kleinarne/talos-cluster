@@ -3,5 +3,5 @@ kind: Kustomization
 resources:
   - namespace.yaml
   - ext-homeassistant/ks.yaml
-  - ext-pegasus/ks.yaml
   - ext-timberwolf/ks.yaml
+  - ext-pegasus/ks.yaml
