@@ -38,6 +38,7 @@ spec:
           main:
             enabled: true
             port: 10443
+            protocol: https
     ingress:
       main:
         enabled: true
