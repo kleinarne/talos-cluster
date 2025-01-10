@@ -34,11 +34,6 @@ spec:
       main:
         type: ExternalIP
         externalIP: ${TIMBERWOLF_IP}
-        protocol: HTTPS
-        ports:
-          main:
-            enabled: true
-            port: 10443
     ingress:
       main:
         enabled: true
