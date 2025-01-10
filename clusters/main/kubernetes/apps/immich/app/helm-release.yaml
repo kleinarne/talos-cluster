@@ -31,13 +31,6 @@ spec:
     keepHistory: false
   values:
     credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-vaultwarden
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
@@ -102,7 +95,7 @@ spec:
               enabled: true
     cnpg:
       main:
-        mode: recovery
+        mode: standalone
         backups:
           enabled: true
           credentials: minio
