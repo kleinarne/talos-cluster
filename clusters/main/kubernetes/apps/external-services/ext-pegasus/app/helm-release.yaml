@@ -36,9 +36,8 @@ spec:
         externalIP: ${TRUENAS_IP}
         ports:
           main:
-            enabled: false
+            enabled: true
             port: 10443
-            protocol: https
     ingress:
       main:
         enabled: true
