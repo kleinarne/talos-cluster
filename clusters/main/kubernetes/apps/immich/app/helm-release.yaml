@@ -30,6 +30,85 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}-vaultwarden
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-immich
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}
+    persistence:
+      library:
+        volsync:
+          - name: library
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+      uploads:
+        volsync:
+          - name: uploads
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+      backups:
+        volsync:
+          - name: backups
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+      thumbs:
+        volsync:
+          - name: thumbs
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+      profile:
+        volsync:
+          - name: profile
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+      video:
+        volsync:
+          - name: video
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+    cnpg:
+      main:
+        mode: recovery
+        backups:
+          enabled: true
+          credentials: minio
+        recovery:
+          enabled: false
+          credentials: minio
     ingress:
       main:
         enabled: true
