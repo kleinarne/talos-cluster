@@ -36,7 +36,7 @@ spec:
         externalIP: ${HOMEASSISTANT_IP}
         ports:
           main:
-            enabled: true
+            enabled: false
             port: 8123
             protocol: http
     ingress:
