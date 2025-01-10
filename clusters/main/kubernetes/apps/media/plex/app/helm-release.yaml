@@ -40,22 +40,21 @@ spec:
             type: restic
             credentials: backblaze
             dest:
-              enabled: true
+              enabled: false
             src:
               enabled: false
               trigger:
-                schedule: 25 14 * * *
       media:
         enabled: true
         existingClaim: media-nfs-pvc
         mountPath: /mnt/media
-#    workload:
-#      main:
-#        podSpec:
-#          containers:
-#            main:
-#              env:
-#                PLEX_CLAIM: claim-YgUA1y-pasHfSQ8zx1y_
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                PLEX_CLAIM: claim-NZXmx_pA1qsfgJFjV6tF
     service:
       main:
         type: LoadBalancer
