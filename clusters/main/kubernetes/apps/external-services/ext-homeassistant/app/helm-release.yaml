@@ -49,5 +49,5 @@ spec:
                 pathType: Prefix
         integrations:
           certManager:
-            certificateIssuer: domain-0-le-prod
             enabled: true
+            certificateIssuer: domain-0-le-prod
