@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: plex
-      version: 18.0.12
+      version: 19.5.1
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -74,7 +74,7 @@ spec:
       backblaze:
         type: s3
         url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-plex
+        bucket: talosbackup-plex
         accessKey: ${S3_BACKBLAZE_ACCESSKEY}
         secretKey: ${S3_BACKBLAZE_SECRETKEY}
         encrKey: ${S3_BACKBLAZE_ENCRKEY}
