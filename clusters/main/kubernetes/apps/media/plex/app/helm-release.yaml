@@ -55,7 +55,7 @@ spec:
           containers:
             main:
               env:
-                PLEX_CLAIM: ${PLEX_CLAIM_2}
+                PLEX_CLAIM: claim-YgUA1y-pasHfSQ8zx1y_
     service:
       main:
         type: LoadBalancer
