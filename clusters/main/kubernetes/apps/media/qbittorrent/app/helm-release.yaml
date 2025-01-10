@@ -53,6 +53,7 @@ spec:
         existingClaim: media-nfs-pvc
         mountPath: /mnt/media
       webui:
+        enabled: true
         type: nfs
         server: ${TRUENAS_IP}
         path: ${VUETORRENT_WEBUI_NFS_PATH}
