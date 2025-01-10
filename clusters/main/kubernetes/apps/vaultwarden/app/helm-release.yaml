@@ -32,21 +32,6 @@ spec:
   values:
     global:
       stopAll: false
-    credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-vaultwarden
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
-      minio:
-        type: s3
-        url: ${MINIO_S3_URL}
-        bucket: ${MINIO_S3_BUCKET}-vaultwarden
-        accessKey: ${MINIO_S3_ACCESSKEY}
-        secretKey: ${MINIO_S3_SECRETKEY}
-        encrKey: ${MINIO_S3_ENCRKEY}
     vaultwarden:
       allowSignups: false
       smtp:
@@ -63,32 +48,30 @@ spec:
         invalidCertificate: true
         user: ${SMTP_USERNAME}
         password: ${SMTP_PASSWORD}
-      yubico:
-        enabled: false
       push:
         enabled: true
         installationId: ${VAULTWARDEN_PUSHID}
         installationKey: ${VAULTWARDEN_PUSHKEY}
+    cnpg:
+      main:
+        mode: standalone
+        password: ${VAULTWARDEN_CNPG_PASSWORD}
+        backups:
+          enabled: true
+          credentials: minio
+        recovery:
+          enabled: false
+          credentials: minio
     persistence:
       data:
         volsync:
           - name: config
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
               enabled: false
             src:
               enabled: true
-    cnpg:
-      main:
-        mode: recovery
-        password: ${VAULTWARDEN_CNPG_PASSWORD}
-        backups:
-          enabled: true
-          credentials: backblaze
-        recovery:
-          enabled: false
-          credentials: backblaze
     ingress:
       main:
         enabled: true
@@ -112,3 +95,18 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}-vaultwarden
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-vaultwarden
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}

@@ -30,14 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-nextcloud
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
     nextcloud:
       general:
         run_optimize: true
@@ -51,6 +43,16 @@ spec:
           - de_DE
           - en_GB
           - en_US
+    cnpg:
+      main:
+        mode: standalone
+        password: ${NEXTCLOUD_CNPG_PASSWORD}
+        backups:
+          enabled: true
+          credentials: minio
+        recovery:
+          enabled: false
+          credentials: minio
     persistence:
       config:
         volsync:
@@ -65,16 +67,6 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: ${NEXTCLOUD_NFS_PATH}
-    cnpg:
-      main:
-        mode: recovery
-        password: ${NEXTCLOUD_CNPG_PASSWORD}
-        backups:
-          enabled: true
-          credentials: backblaze
-        recovery:
-          enabled: false
-          credentials: backblaze
     ingress:
       main:
         enabled: true
@@ -98,3 +90,18 @@ spec:
               certificateIssuer: domain-0-le-prod
           hosts:
             - host: cs.nextcloud.${DOMAIN_0_LOCAL}
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}-nextcloud
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-nextcloud
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}

@@ -30,14 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    credentials:
-      minio:
-        type: s3
-        url: http://minio-api.minio.svc.cluster.local:10106
-        bucket: ${MINIO_S3_BUCKET}-immich
-        accessKey: ${MINIO_S3_ACCESSKEY}
-        secretKey: ${MINIO_S3_SECRETKEY}
-        encrKey: ${MINIO_S3_ENCRKEY}
     persistence:
       library:
         volsync:
@@ -95,7 +87,7 @@ spec:
               enabled: true
     cnpg:
       main:
-        mode: standalone
+        mode: recovery
         backups:
           enabled: true
           credentials: minio
@@ -114,3 +106,11 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
+    credentials:
+      minio:
+        type: s3
+        url: http://minio-api.minio.svc.cluster.local:10106
+        bucket: ${MINIO_S3_BUCKET}-immich
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}

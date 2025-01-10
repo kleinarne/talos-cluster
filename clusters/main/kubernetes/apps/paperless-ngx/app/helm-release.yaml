@@ -30,20 +30,31 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-paperless-ngx
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                PAPERLESS_URL: https://paperless.${DOMAIN_0_LOCAL}
+                PAPERLESS_OCR_LANGUAGE: "eng"
+                PAPERLESS_OCR_LANGUAGES: "eng deu"
+    cnpg:
+      main:
+        mode: standalone
+        password: ${PAPERLESS_CNPG_PASSWORD}
+        backups:
+          enabled: true
+          credentials: minio
+        recovery:
+          enabled: false
+          credentials: minio
     persistence:
       data:
         volsync:
           - name: data
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
               enabled: false
             src:
@@ -61,16 +72,6 @@ spec:
         type: nfs
         server: ${TRUENAS_IP}
         path: ${PAPERLESS_WATCHDIR_NFS_PATH}
-    cnpg:
-      main:
-        mode: standalone
-        password: ${PAPERLESS_CNPG_PASSWORD}
-        backups:
-          enabled: true
-          credentials: backblaze
-        recovery:
-          enabled: false
-          credentials: backblaze
     ingress:
       main:
         enabled: true
@@ -83,12 +84,18 @@ spec:
           certManager:
             certificateIssuer: domain-0-le-prod
             enabled: true
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                PAPERLESS_URL: https://paperless.${DOMAIN_0_LOCAL}
-                PAPERLESS_OCR_LANGUAGE: "eng"
-                PAPERLESS_OCR_LANGUAGES: "eng deu"
+    credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}-paperless-ngx
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
+      minio:
+        type: s3
+        url: ${MINIO_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-paperless-ngx
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}
