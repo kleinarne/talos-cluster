@@ -47,22 +47,22 @@ spec:
       main:
         mode: standalone
         password: ${NEXTCLOUD_CNPG_PASSWORD}
-#        backups:
-#          enabled: true
-#          credentials: minio
-#        recovery:
-#          enabled: false
-#          credentials: minio
+        backups:
+          enabled: true
+          credentials: minio
+        recovery:
+          enabled: false
+          credentials: minio
     persistence:
       config:
-#        volsync:
-#          - name: config
-#            type: restic
-#            credentials: backblaze
-#            dest:
-#              enabled: false
-#            src:
-#              enabled: true
+        volsync:
+          - name: config
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
       data:
         type: nfs
         server: ${TRUENAS_IP}
