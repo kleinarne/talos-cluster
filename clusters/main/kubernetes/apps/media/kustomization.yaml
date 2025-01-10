@@ -6,3 +6,5 @@ resources:
   - namespace.yaml
   - sonarr/ks.yaml
   - radarr/ks.yaml
+  - plex/ks.yaml
+  - qbittorrent/ks.yaml
