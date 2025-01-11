@@ -49,7 +49,10 @@ spec:
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
           enabled: true
-          credentials: minio
+          credentials: backblaze
+          scheduledBackups:
+            - name: manual-backup
+              schedule: "50 6 11 1 * 2025"
         recovery:
           enabled: false
           credentials: minio
@@ -58,11 +61,13 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: minio
+            credentials: backblaze
             dest:
               enabled: false
             src:
               enabled: true
+              trigger:
+                schedule: 50 6 11 1 *
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -91,6 +96,13 @@ spec:
           hosts:
             - host: cs.nextcloud.${DOMAIN_0_LOCAL}
     credentials:
+      backblaze:
+        type: s3
+        url: ${S3_BACKBLAZE_URL}
+        bucket: ${S3_BACKBLAZE_BUCKET}-manual-nextcloud
+        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
+        secretKey: ${S3_BACKBLAZE_SECRETKEY}
+        encrKey: ${S3_BACKBLAZE_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
