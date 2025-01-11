@@ -50,9 +50,6 @@ spec:
         backups:
           enabled: true
           credentials: backblaze
-          scheduledBackups:
-            - name: manual-backup
-              schedule: "50 6 11 1 * 2025"
         recovery:
           enabled: false
           credentials: minio
@@ -67,7 +64,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 14 8 11 1 *
+                schedule: 50 7 11 1 *
       data:
         type: nfs
         server: ${TRUENAS_IP}
