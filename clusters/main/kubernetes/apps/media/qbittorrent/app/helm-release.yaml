@@ -52,7 +52,8 @@ spec:
         mountPath: /webui
     service:
       torrent:
-        type: ${QBITTORRENT_IP}
+        type: LoadBalancer
+        loadBalancerIP: ${QBITTORRENT_IP}
     ingress:
       main:
         enabled: true
@@ -66,13 +67,6 @@ spec:
             certificateIssuer: domain-0-le-prod
             enabled: true
     credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: pegasuslark-backups
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
