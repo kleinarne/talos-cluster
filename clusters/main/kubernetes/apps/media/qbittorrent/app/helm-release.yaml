@@ -35,11 +35,11 @@ spec:
         volsync:
           - name: config
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
-              enabled: true
-            src:
               enabled: false
+            src:
+              enabled: true
       media:
         enabled: true
         existingClaim: media-nfs-pvc
@@ -50,6 +50,9 @@ spec:
         server: ${TRUENAS_IP}
         path: ${VUETORRENT_WEBUI_NFS_PATH}
         mountPath: /webui
+    service:
+      torrent:
+        type: ${QBITTORRENT_IP}
     ingress:
       main:
         enabled: true
