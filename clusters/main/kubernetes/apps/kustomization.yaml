@@ -11,3 +11,4 @@ resources:
   - cloudflareddns/ks.yaml
   - minio/ks.yaml
   - media
+  - nextcloud-restore-test/ks.yaml

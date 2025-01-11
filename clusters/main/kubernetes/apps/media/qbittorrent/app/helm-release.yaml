@@ -57,6 +57,9 @@ spec:
       torrent:
         type: LoadBalancer
         loadBalancerIP: ${QBITTORRENT_IP}
+        ports:
+          torrent:
+            port: 51482
     ingress:
       main:
         enabled: true
