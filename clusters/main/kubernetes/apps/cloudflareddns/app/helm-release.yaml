@@ -30,6 +30,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    global:
+      stopAll: false
+    TZ: Europe/Berlin
     cloudflareddns:
       api_token: ${CLOUDFLAREDDNS_API_TOKEN}
       host_zone_record:

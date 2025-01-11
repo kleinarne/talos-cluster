@@ -30,6 +30,9 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: Europe/Berlin
+    global:
+      stopAll: false
     plex:
       serverIP: ${PLEX_IP}
       additionalAdvertiseURL: https://plex.${DOMAIN_0_LOCAL}

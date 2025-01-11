@@ -30,6 +30,7 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: Europe/Berlin
     global:
       stopAll: false
     vaultwarden:
