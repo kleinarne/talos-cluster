@@ -1,8 +1,8 @@
 {
     "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
-    "name": "ClusterTool Cluster",
-    "image": "tccr.io/tccr/devcontainer:v1.0.0-RC28@sha256:4d155ce53c5e3fdd3560e008e3c0552e2e26c5688d787f1db21c068e8af46cdc",
-    "initializeCommand": "docker pull tccr.io/tccr/devcontainer:v1.0.0-RC28",
+    "name": "TrueCharts",
+    "image": "tccr.io/tccr/devcontainer:v1.0.1@sha256:d860bbd1f7423f4af9629e8cbf4083b46801e905d5ca170124391899d64cc753",
+    "initializeCommand": "docker pull tccr.io/tccr/devcontainer:v1.0.1",
     "postCreateCommand": {
       "setup": "bash ${containerWorkspaceFolder}/.devcontainer/postCreateCommand.sh"
     },
