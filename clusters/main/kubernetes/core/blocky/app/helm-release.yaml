@@ -35,7 +35,7 @@ spec:
       stopAll: false
     # -- set conditional settings
     conditional:
-      rewrite: []
+      # rewrite: []
       # - in: something.com
       #   out: somethingelse.com
       mapping:
