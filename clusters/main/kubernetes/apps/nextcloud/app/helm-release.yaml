@@ -55,7 +55,7 @@ spec:
           credentials: backblaze
           scheduledBackups:
             - name: manual-backup
-              schedule: "0 18 12 1 * *"
+              schedule: "5 18 12 1 * *"
               backupOwnerReference: self
               immediate: true
               suspend: false
@@ -73,7 +73,7 @@ spec:
             src:
               enabled: true
               trigger:
-                schedule: 0 18 12 1 *
+                schedule: 5 18 12 1 *
       data:
         type: nfs
         server: ${TRUENAS_IP}
