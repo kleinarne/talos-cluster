@@ -38,9 +38,9 @@ spec:
       # rewrite: []
       # - in: something.com
       #   out: somethingelse.com
-     # mapping:
-      #  - domain: ${DOMAIN_0_LOCAL_TEST}
-       #   dnsserver: ${BLOCKY_TEST_IP}
+      mapping:
+        - domain: ${DOMAIN_0_LOCAL_TEST}
+          dnsserver: ${BLOCKY_TEST_IP}
     service:
       dns:
         externalTrafficPolicy: Local
