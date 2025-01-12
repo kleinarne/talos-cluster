@@ -37,7 +37,7 @@ spec:
       general:
         run_optimize: true
         default_phone_region: DE
-        accessIP: ${NEXTCLOUD_IP}
+        accessIP: ${TRAEFIK_IP}
       collabora:
         enabled: true
         username: ${NEXTCLOUD_COLLABORA_USERNAME}
@@ -48,7 +48,7 @@ spec:
           - en_US
     cnpg:
       main:
-        mode: standalone
+        mode: recovery
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
           enabled: false
