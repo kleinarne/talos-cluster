@@ -112,7 +112,7 @@ spec:
     credentials:
       minio:
         type: s3
-        url: http://minio-api.minio.svc.cluster.local:10106
+        url: ${MINIO_S3_URL}
         bucket: ${MINIO_S3_BUCKET}-immich
         accessKey: ${MINIO_S3_ACCESSKEY}
         secretKey: ${MINIO_S3_SECRETKEY}

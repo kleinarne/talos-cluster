@@ -12,3 +12,4 @@ resources:
   - minio/ks.yaml
   - media
   - nextcloud-restore-test/ks.yaml
+  - wg-easy/ks.yaml
