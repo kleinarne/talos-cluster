@@ -33,6 +33,14 @@ spec:
     # and/or disable its service
     global:
       stopAll: false
+    # -- set conditional settings
+    conditional:
+      rewrite: []
+      # - in: something.com
+      #   out: somethingelse.com
+      mapping:
+        - domain: ${DOMAIN_0_LOCAL_TEST}
+          dnsserver: ${BLOCKY_TEST_IP}
     service:
       dns:
         externalTrafficPolicy: Local
