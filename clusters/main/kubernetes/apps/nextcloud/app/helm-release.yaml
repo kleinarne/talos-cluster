@@ -52,10 +52,16 @@ spec:
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
           enabled: true
-          credentials: backblaze
+          credentials: minio
+          scheduledBackups:
+            - name: manual-backup
+              schedule: "0 5 19 12 1 *"
+              backupOwnerReference: self
+              immediate: true
+              suspend: false
         recovery:
           enabled: false
-          credentials: minio
+          credentials: backblaze
     persistence:
       config:
         volsync:
@@ -66,6 +72,8 @@ spec:
               enabled: false
             src:
               enabled: true
+              trigger:
+                schedule: 5 19 12 1 *
       data:
         type: nfs
         server: ${TRUENAS_IP}
