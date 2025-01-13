@@ -97,6 +97,10 @@ spec:
             paths:
               - path: /
                 pathType: Prefix
+          - host: nc.${DOMAIN_0}
+            paths:
+              - path: /
+                pathType: Prefix
         integrations:
           certManager:
             certificateIssuer: domain-0-le-prod
