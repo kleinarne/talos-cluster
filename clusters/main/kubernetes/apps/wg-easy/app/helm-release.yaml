@@ -15,8 +15,10 @@ spec:
         name: truecharts
         namespace: flux-system
       interval: 15m
-  timeout: 5m
+  timeout: 20m
   maxHistory: 3
+  driftDetection:
+    mode: warn
   install:
     createNamespace: true
     remediation:
@@ -28,46 +30,20 @@ spec:
   uninstall:
     keepHistory: false
   values:
+    TZ: Europe/Berlin
     global:
       stopAll: false
-    service:
-      vpn:
-        loadBalancerIP: ${WGEASY_IP}
-        type: LoadBalancer
-        externalTrafficPolicy: Local
-    ingress:
-      main:
-        enabled: true
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: domain-0-le-prod
-        hosts:
-          - host: wg.${DOMAIN_0_LOCAL}
-            paths:
-              - path: /
-                pathType: Prefix
-    persistence:
-      config:
-        volsync:
-        - name: config
-          type: restic
-          cleanupTempPVC: true
-          cleanupCachePVC: true
-          credentials: minio
-          dest:
-            enabled: false
-          src:
-            enabled: true
     workload:
       main:
         podSpec:
           containers:
             main:
               env:
-                WG_HOST: wg.${DOMAIN_0}
+                WG_HOST: ${WGEASY_PUBLIC_HOST}
                 WG_MTU: 1420
+                WG_PERSISTENT_KEEPALIVE: 25
                 WG_DEFAULT_DNS: ${BLOCKY_IP}
+                WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
                 PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
                 UI_TRAFFIC_STATS: "true"
     securityContext:
@@ -85,11 +61,38 @@ spec:
         runAsNonRoot: false
         runAsUser: 0
         privileged: true
+    persistence:
+      config:
+        volsync:
+          - name: config
+            type: restic
+            credentials: minio
+            dest:
+              enabled: false
+            src:
+              enabled: true
+    service:
+      vpn:
+        type: LoadBalancer
+        loadBalancerIP: ${WGEASY_IP}
+        externalTrafficPolicy: Local
+    ingress:
+      main:
+        enabled: true
+        hosts:
+          - host: wg.${DOMAIN_0_LOCAL}
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            certificateIssuer: domain-0-le-prod
+            enabled: true
     credentials:
       minio:
         type: s3
         url: ${MINIO_S3_URL}
-        bucket: ${MINIO_S3_BUCKET}-immich
+        bucket: ${MINIO_S3_BUCKET}-wg-easy
         accessKey: ${MINIO_S3_ACCESSKEY}
         secretKey: ${MINIO_S3_SECRETKEY}
         encrKey: ${MINIO_S3_ENCRKEY}
