@@ -12,3 +12,4 @@ resources:
   - unifi/ks.yaml
   - vaultwarden/ks.yaml
   - wg-easy/ks.yaml
+  - code-server/ks.yaml
