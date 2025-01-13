@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: wg-easy
-      version: 16.2.2
+      version: 16.3.0
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -45,22 +45,7 @@ spec:
                 WG_DEFAULT_DNS: ${BLOCKY_IP}
                 WG_ALLOWED_IPS: ${WGEASY_ALLOWED_IPS}
                 PASSWORD_HASH: ${WGEASY_PASSWORD_HASH}
-#                UI_TRAFFIC_STATS: "true"
-#    securityContext:
-#      container:
-#        PUID: 0
-#        UMASK: '0022'
-#        advanced: false
-#        capabilities:
-#          add:
-#          - NET_ADMIN
-#          - NET_RAW
-#          - SYS_MODULE
-#        readOnlyRootFilesystem: false
-#        runAsGroup: 0
-#        runAsNonRoot: false
-#        runAsUser: 0
-#        privileged: true
+                UI_TRAFFIC_STATS: "true"
     persistence:
       config:
         volsync:
@@ -75,7 +60,7 @@ spec:
       vpn:
         type: LoadBalancer
         loadBalancerIP: ${WGEASY_IP}
-        externalTrafficPolicy: Local
+#        externalTrafficPolicy: Local
     ingress:
       main:
         enabled: true
