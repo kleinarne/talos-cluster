@@ -33,6 +33,10 @@ spec:
     TZ: Europe/Berlin
     global:
       stopAll: false
+    securityContext:
+      container:
+        UMASK: '0022'
+        privileged: true
     workload:
       main:
         podSpec:
@@ -60,7 +64,7 @@ spec:
       vpn:
         type: LoadBalancer
         loadBalancerIP: ${WGEASY_IP}
-#        externalTrafficPolicy: Local
+        externalTrafficPolicy: Local
     ingress:
       main:
         enabled: true
