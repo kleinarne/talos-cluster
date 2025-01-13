@@ -1,16 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - kubernetes-dashboard/ks.yaml
-  - immich/ks.yaml
-  - paperless-ngx/ks.yaml
-  - external-services
-  - vaultwarden/ks.yaml
-  - unifi/ks.yaml
-  - nextcloud/ks.yaml
   - cloudflareddns/ks.yaml
-  - minio/ks.yaml
+  - external-services
+  - immich/ks.yaml
+  - kubernetes-dashboard/ks.yaml
   - media
-  - nextcloud-restore-test/ks.yaml
+  - minio/ks.yaml
+  - nextcloud/ks.yaml
+  - paperless-ngx/ks.yaml
+  - unifi/ks.yaml
+  - vaultwarden/ks.yaml
   - wg-easy/ks.yaml
-  - wg-easy_old/ks.yaml
