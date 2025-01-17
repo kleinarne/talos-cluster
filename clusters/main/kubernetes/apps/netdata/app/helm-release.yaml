@@ -77,19 +77,10 @@ spec:
                 pathType: Prefix
         integrations:
           certManager:
-            certificateIssuer: domain-0-le-prod
             enabled: true
-    addons:
-      codeserver:
-        enabled: true
-        ingress:
-          enabled: true
-          integrations:
-            certManager:
-              enabled: true
-              certificateIssuer: domain-0-le-prod
-          hosts:
-            - host: netdata.${DOMAIN_0_LOCAL}
+            certificateIssuer: domain-0-le-prod
+          traefik:
+            enabled: true
     credentials:
       minio:
         type: s3
