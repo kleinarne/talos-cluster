@@ -13,3 +13,4 @@ resources:
   - vaultwarden/ks.yaml
   - code-server/ks.yaml
   - cloudflared/ks.yaml
+  - netdata/ks.yaml
