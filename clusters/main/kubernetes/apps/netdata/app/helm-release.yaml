@@ -33,7 +33,6 @@ spec:
     TZ: Europe/Berlin
     global:
       stopAll: false
-
     persistence:
       config:
         volsync:
@@ -46,7 +45,7 @@ spec:
               enabled: true         
       lib:
         volsync:
-          - name: config
+          - name: lib
             type: restic
             credentials: minio
             dest:
@@ -55,7 +54,7 @@ spec:
               enabled: true
       cache:
         volsync:
-          - name: config
+          - name: cache
             type: restic
             credentials: minio
             dest:
