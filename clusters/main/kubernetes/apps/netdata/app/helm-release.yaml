@@ -34,6 +34,12 @@ spec:
     global:
       stopAll: false
     persistence:
+      group:
+        enabled:
+          false
+      passwd:
+        enabled:
+          false
       config:
         volsync:
           - name: config
