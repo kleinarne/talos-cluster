@@ -53,12 +53,6 @@ spec:
         backups:
           enabled: true
           credentials: minio
-          scheduledBackups:
-            - name: manual-backup
-              schedule: "0 0 22 12 1 *"
-              backupOwnerReference: self
-              immediate: true
-              suspend: false
         recovery:
           enabled: false
           credentials: minio
@@ -72,8 +66,6 @@ spec:
               enabled: false
             src:
               enabled: true
-              trigger:
-                schedule: 0 22 12 1 *
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -87,17 +79,11 @@ spec:
               enabled: false
             src:
               enabled: true
-              trigger:
-                schedule: 0 22 12 1 *
     ingress:
       main:
         enabled: true
         hosts:
           - host: nextcloud.${DOMAIN_0_LOCAL}
-            paths:
-              - path: /
-                pathType: Prefix
-          - host: nc.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
