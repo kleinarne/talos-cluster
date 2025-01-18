@@ -40,6 +40,7 @@ spec:
         loadBalancerIP: ${TRAEFIK_IP}
     ingress:
       main:
+        enabled: true
         hosts:
           - host: traefik.${DOMAIN_0_LOCAL}
             paths:
