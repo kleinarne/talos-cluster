@@ -33,16 +33,6 @@ spec:
     TZ: Europe/Berlin
     global:
       stopAll: false
-    persistence:
-      config:
-        volsync:
-          - name: config
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
     ingress:
       main:
         enabled: true
