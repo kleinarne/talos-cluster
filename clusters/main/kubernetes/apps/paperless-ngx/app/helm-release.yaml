@@ -59,18 +59,18 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: true
-            src:
               enabled: false
+            src:
+              enabled: true
       media:
         volsync:
           - name: documents
             type: restic
             credentials: minio
             dest:
-              enabled: true
-            src:
               enabled: false
+            src:
+              enabled: true
       consume:
         type: nfs
         server: ${TRUENAS_IP}
