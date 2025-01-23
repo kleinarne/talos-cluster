@@ -59,18 +59,18 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
-            src:
               enabled: true
+            src:
+              enabled: false
       media:
         volsync:
           - name: documents
             type: restic
-            credentials: backblaze
+            credentials: minio
             dest:
-              enabled: false
-            src:
               enabled: true
+            src:
+              enabled: false
       consume:
         type: nfs
         server: ${TRUENAS_IP}
@@ -88,13 +88,6 @@ spec:
             certificateIssuer: domain-0-le-prod
             enabled: true
     credentials:
-      backblaze:
-        type: s3
-        url: ${S3_BACKBLAZE_URL}
-        bucket: ${S3_BACKBLAZE_BUCKET}-paperless-ngx
-        accessKey: ${S3_BACKBLAZE_ACCESSKEY}
-        secretKey: ${S3_BACKBLAZE_SECRETKEY}
-        encrKey: ${S3_BACKBLAZE_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
