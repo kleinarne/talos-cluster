@@ -32,62 +32,32 @@ spec:
   values:
     TZ: Europe/Berlin
     global:
-      stopAll: true
+      stopAll: false
     persistence:
       library:
-        volsync:
-          - name: library
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/library
       uploads:
-        volsync:
-          - name: uploads
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/uploads
       backups:
-        volsync:
-          - name: backups
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/backups
       thumbs:
-        volsync:
-          - name: thumbs
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/thumbs
       profile:
-        volsync:
-          - name: profile
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/profile
       video:
-        volsync:
-          - name: video
-            type: restic
-            credentials: minio
-            dest:
-              enabled: false
-            src:
-              enabled: true
+        type: nfs
+        server: ${TRUENAS_IP}
+        path: ${IMMICH_NFS_PATH}/video
     cnpg:
       main:
         mode: recovery
