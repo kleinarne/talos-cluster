@@ -39,6 +39,9 @@ spec:
           containers:
             main:
               env:
+                PAPERLESS_CONSUMER_POLLING: 10
+                PAPERLESS_CONSUMER_POLLING_DELAY: 5
+                PAPERLESS_CONSUMER_RETRY_COUNT: 10
                 PAPERLESS_URL: https://paperless.${DOMAIN_0_LOCAL}
                 PAPERLESS_OCR_LANGUAGE: "eng"
                 PAPERLESS_OCR_LANGUAGES: "eng deu"
