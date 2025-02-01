@@ -60,7 +60,7 @@ spec:
         path: ${IMMICH_NFS_PATH}/video
     cnpg:
       main:
-        mode: recovery
+        mode: standalone
         backups:
           enabled: true
           credentials: minio
