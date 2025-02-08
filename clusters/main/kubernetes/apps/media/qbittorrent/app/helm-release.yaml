@@ -64,7 +64,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: qbittorrent.${DOMAIN_0_LOCAL}
+          - host: qbittorrent.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
