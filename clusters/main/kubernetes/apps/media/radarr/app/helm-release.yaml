@@ -51,7 +51,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: radarr.${DOMAIN_0_LOCAL}
+          - host: radarr.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
