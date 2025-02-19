@@ -82,7 +82,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: paperless.${DOMAIN_0_LOCAL}
+          - host: paperless.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
