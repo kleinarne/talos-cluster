@@ -44,7 +44,7 @@ spec:
       main:
         enabled: true
         hosts:
-          - host: pegasus.${DOMAIN_0_LOCAL}
+          - host: pegasus.${DOMAIN_0}
             paths:
               - path: /
                 pathType: Prefix
