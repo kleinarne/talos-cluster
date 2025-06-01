@@ -47,13 +47,14 @@ spec:
                 PAPERLESS_OCR_LANGUAGES: "eng deu"
     cnpg:
       main:
-        mode: standalone
+        mode: recovery
         password: ${PAPERLESS_CNPG_PASSWORD}
         backups:
           enabled: true
+          revision: "1"
           credentials: minio
         recovery:
-          enabled: false
+          enabled: true
           credentials: minio
     persistence:
       data:
@@ -62,7 +63,7 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
       media:
@@ -71,7 +72,7 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
       consume:
