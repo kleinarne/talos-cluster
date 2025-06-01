@@ -35,7 +35,7 @@ spec:
       stopAll: false
     nextcloud:
       general:
-        run_optimize: true
+        run_optimize: false
         default_phone_region: DE
         accessIP: ${TRAEFIK_IP}
       collabora:
