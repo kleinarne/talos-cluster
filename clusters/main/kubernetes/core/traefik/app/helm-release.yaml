@@ -38,15 +38,15 @@ spec:
     service:
       tcp:
         loadBalancerIP: ${TRAEFIK_IP}
-#    ingress:
-#      main:
-#        enabled: true
-#        hosts:
-#          - host: traefik.${DOMAIN_0_LOCAL}
-#            paths:
-#              - path: /
-#                pathType: Prefix
-#        integrations:
-#          certManager:
-#            enabled: true
-#            certificateIssuer: domain-0-le-prod
+    ingress:
+      main:
+        enabled: false
+        hosts:
+          - host: traefik.${DOMAIN_0_LOCAL}
+            paths:
+              - path: /
+                pathType: Prefix
+        integrations:
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod
