@@ -46,16 +46,16 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
-              enabled: true         
+              enabled: true
       lib:
         volsync:
           - name: lib
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
       cache:
@@ -64,7 +64,7 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
     ingress:

@@ -48,13 +48,15 @@ spec:
           - en_US
     cnpg:
       main:
-        mode: standalone
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "enabled"
+        mode: recovery
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
           enabled: true
           credentials: minio
         recovery:
-          enabled: false
+          enabled: true
           credentials: minio
     persistence:
       config:
@@ -63,7 +65,7 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
       data:
@@ -76,7 +78,7 @@ spec:
             type: restic
             credentials: minio
             dest:
-              enabled: false
+              enabled: true
             src:
               enabled: true
     ingress:

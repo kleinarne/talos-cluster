@@ -60,12 +60,14 @@ spec:
         path: ${IMMICH_NFS_PATH}/video
     cnpg:
       main:
-        mode: standalone
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "enabled"
+        mode: recovery
         backups:
           enabled: true
           credentials: minio
         recovery:
-          enabled: false
+          enabled: true
           credentials: minio
     ingress:
       main:
