@@ -55,13 +55,15 @@ spec:
         installationKey: ${VAULTWARDEN_PUSHKEY}
     cnpg:
       main:
-        mode: standalone
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "enabled"
+        mode: recovery
         password: ${VAULTWARDEN_CNPG_PASSWORD}
         backups:
           enabled: true
           credentials: minio
         recovery:
-          enabled: false
+          enabled: true
           credentials: minio
     persistence:
       data:

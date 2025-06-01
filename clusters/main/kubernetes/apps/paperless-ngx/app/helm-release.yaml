@@ -47,11 +47,12 @@ spec:
                 PAPERLESS_OCR_LANGUAGES: "eng deu"
     cnpg:
       main:
+        annotations:
+          cnpg.io/skipEmptyWalArchiveCheck: "enabled"
         mode: recovery
         password: ${PAPERLESS_CNPG_PASSWORD}
         backups:
           enabled: true
-          revision: "1"
           credentials: minio
         recovery:
           enabled: true
