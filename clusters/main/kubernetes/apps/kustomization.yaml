@@ -15,4 +15,3 @@ resources:
   - netdata/ks.yaml
   - actualserver/ks.yaml
   - minio-recovery/ks.yaml
-  - nextcloud/ks.yaml
