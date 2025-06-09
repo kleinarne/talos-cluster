@@ -44,7 +44,7 @@ spec:
     persistence:
       config:
         type: nfs
-        path: ${MINIORECOVERY_NFS_PATH2}
+        path: ${MINIORECOVERY_NFS_PATH3}
         server: ${TRUENAS_IP}
     ingress:
       main:

@@ -53,21 +53,21 @@ spec:
         mode: recovery
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
-          enabled: false
-          credentials: minio-recovery
+          enabled: true
+          credentials: minio
         recovery:
           enabled: true
-          credentials: minio-recovery
+          credentials: minio
     persistence:
       config:
         volsync:
           - name: config
             type: restic
-            credentials: minio-recovery
+            credentials: minio
             dest:
               enabled: true
             src:
-              enabled: false
+              enabled: true
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -76,11 +76,11 @@ spec:
         volsync:
           - name: html
             type: restic
-            credentials: minio-recovery
+            credentials: minio
             dest:
               enabled: true
             src:
-              enabled: false
+              enabled: true
     ingress:
       main:
         enabled: true
@@ -105,17 +105,10 @@ spec:
           hosts:
             - host: cs.nextcloud.${DOMAIN_0_LOCAL}
     credentials:
-      minio-recovery:
-        type: s3
-        url: ${MINIORECOVERY_S3_URL}
-        bucket: ${MINIO_S3_BUCKET}-nextcloud
-        accessKey: ${MINIO_S3_ACCESSKEY}
-        secretKey: ${MINIO_S3_SECRETKEY}
-        encrKey: ${MINIO_S3_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
-        bucket: ${MINIO_S3_BUCKET}-nextcloud
+        bucket: ${MINIO_S3_BUCKET}-nextcloud-20250609
         accessKey: ${MINIO_S3_ACCESSKEY}
         secretKey: ${MINIO_S3_SECRETKEY}
         encrKey: ${MINIO_S3_ENCRKEY}
