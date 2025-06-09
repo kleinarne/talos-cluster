@@ -44,7 +44,7 @@ spec:
     persistence:
       config:
         type: nfs
-        path: ${MINIO_NFS_PATH}-auto-2025-05-31_23-25-clone
+        path: ${MINIORECOVERY_NFS_PATH}
         server: ${TRUENAS_IP}
     ingress:
       main:
