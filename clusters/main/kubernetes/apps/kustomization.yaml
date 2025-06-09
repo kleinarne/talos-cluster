@@ -7,12 +7,12 @@ resources:
   - kubernetes-dashboard/ks.yaml
   - media
   - minio/ks.yaml
-  - nextcloud/ks.yaml
   - paperless-ngx/ks.yaml
   - unifi/ks.yaml
   - vaultwarden/ks.yaml
   - code-server/ks.yaml
   - cloudflared/ks.yaml
   - netdata/ks.yaml
-  - drawio/ks.yaml
   - actualserver/ks.yaml
+  - minio-recovery/ks.yaml
+  - nextcloud/ks.yaml

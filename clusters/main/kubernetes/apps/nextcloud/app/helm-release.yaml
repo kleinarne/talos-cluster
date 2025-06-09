@@ -35,7 +35,7 @@ spec:
       stopAll: false
     nextcloud:
       general:
-        run_optimize: false
+        run_optimize: true
         default_phone_region: DE
         accessIP: ${TRAEFIK_IP}
       collabora:
@@ -54,16 +54,16 @@ spec:
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
           enabled: true
-          credentials: minio
+          credentials: minio-recovery
         recovery:
           enabled: true
-          credentials: minio
+          credentials: minio-recovery
     persistence:
       config:
         volsync:
           - name: config
             type: restic
-            credentials: minio
+            credentials: minio-recovery
             dest:
               enabled: true
             src:
@@ -76,7 +76,7 @@ spec:
         volsync:
           - name: html
             type: restic
-            credentials: minio
+            credentials: minio-recovery
             dest:
               enabled: true
             src:
@@ -105,6 +105,13 @@ spec:
           hosts:
             - host: cs.nextcloud.${DOMAIN_0_LOCAL}
     credentials:
+      minio-recovery:
+        type: s3
+        url: ${MINIO_RECOVERY_S3_URL}
+        bucket: ${MINIO_S3_BUCKET}-nextcloud
+        accessKey: ${MINIO_S3_ACCESSKEY}
+        secretKey: ${MINIO_S3_SECRETKEY}
+        encrKey: ${MINIO_S3_ENCRKEY}
       minio:
         type: s3
         url: ${MINIO_S3_URL}
