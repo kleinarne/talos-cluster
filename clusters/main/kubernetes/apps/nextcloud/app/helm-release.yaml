@@ -53,7 +53,7 @@ spec:
         mode: recovery
         password: ${NEXTCLOUD_CNPG_PASSWORD}
         backups:
-          enabled: true
+          enabled: false
           credentials: minio-recovery
         recovery:
           enabled: true
@@ -67,7 +67,7 @@ spec:
             dest:
               enabled: true
             src:
-              enabled: true
+              enabled: false
       data:
         type: nfs
         server: ${TRUENAS_IP}
@@ -80,7 +80,7 @@ spec:
             dest:
               enabled: true
             src:
-              enabled: true
+              enabled: false
     ingress:
       main:
         enabled: true
