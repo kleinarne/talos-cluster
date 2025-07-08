@@ -28,11 +28,10 @@ controller:
     proxy-body-size: 0
     proxy-buffer-size: 16k
     ssl-protocols: TLSv1.3 TLSv1.2
-    use-forwarded-headers: "true"
-  metrics:
+y  metrics:
     enabled: true
   extraArgs:
-    default-ssl-certificate: "clusterissuer/certificate-issuer-general-wildcard"
+    default-ssl-certificate: "clusterissuer/certificate-issuer-domain-0-wildcard"
     publish-status-address: ${NGINX_INTERNAL_IP}
   terminationGracePeriodSeconds: 120
   publishService:
