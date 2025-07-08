@@ -43,12 +43,15 @@ spec:
     ingress:
       main:
         enabled: true
+        ingressClassName: internal
+        integrations:
+          nginx:
+            enabled: true
+          certManager:
+            enabled: true
+            certificateIssuer: domain-0-le-prod
         hosts:
           - host: homeassistant.${DOMAIN_0_LOCAL}
             paths:
               - path: /
                 pathType: Prefix
-        integrations:
-          certManager:
-            enabled: true
-            certificateIssuer: domain-0-le-prod
