@@ -28,7 +28,7 @@ controller:
     proxy-body-size: 0
     proxy-buffer-size: 16k
     ssl-protocols: TLSv1.3 TLSv1.2
-y  metrics:
+  metrics:
     enabled: true
   extraArgs:
     default-ssl-certificate: "clusterissuer/certificate-issuer-domain-0-wildcard"
