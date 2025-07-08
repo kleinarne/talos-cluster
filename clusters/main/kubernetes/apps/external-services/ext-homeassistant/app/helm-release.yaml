@@ -43,7 +43,6 @@ spec:
     ingress:
       main:
         enabled: true
-        ingressClassName: internal
         integrations:
           certManager:
             enabled: true
