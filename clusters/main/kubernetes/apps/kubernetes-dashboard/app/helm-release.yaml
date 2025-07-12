@@ -9,7 +9,7 @@ spec:
   chart:
     spec:
       chart: kubernetes-dashboard
-      version: 1.16.3
+      version: 1.14.2
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -30,9 +30,6 @@ spec:
   uninstall:
     keepHistory: false
   values:
-    TZ: Europe/Berlin
-    global:
-      stopAll: false
     service:
       main:
         type: LoadBalancer
@@ -40,14 +37,3 @@ spec:
         ports:
           main:
             port: 80
-    ingress:
-      main:
-        enabled: true
-        hosts:
-          - host: kubernetes-dashboard.${DOMAIN_0_LOCAL}
-            paths:
-              - path: /
-                pathType: Prefix
-        integrations:
-          certificateIssuer: domain-0-le-prod
-          enabled: true

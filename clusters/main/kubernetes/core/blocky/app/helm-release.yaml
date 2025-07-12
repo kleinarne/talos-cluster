@@ -10,7 +10,7 @@ spec:
   chart:
     spec:
       chart: blocky
-      version: 17.1.1
+      version: 16.13.14
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -33,14 +33,6 @@ spec:
     # and/or disable its service
     global:
       stopAll: false
-    # -- set conditional settings
-    #conditional:
-      # rewrite: []
-      # - in: something.com
-      #   out: somethingelse.com
-      mapping:
-        - domain: ${DOMAIN_0_LOCAL_TEST}
-          dnsserver: ${BLOCKY_TEST_IP}
     service:
       dns:
         externalTrafficPolicy: Local
